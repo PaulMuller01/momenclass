@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Nend.io</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Survive to the city, upgrade your skill, live, age and prepare the next generation"/>
+		<meta name="keywords" content="nend.io, mmo, online game, flash, canvas, html5, nend, life, city, life simulation, age, baby, family, street"/>
+		<meta property="og:title" content="Nend.io - The Never Ending game"/>
+		<meta property="og:description" content="Survive to city! Live, age and prepare the next generation."/>
+		<meta property="og:url" content="https://nend.io"/>
+		<meta property="og:site_name" content="nend.io"/>
+		<meta property="og:image" content="https://nend.io/img/banner.png"/>
+		<meta property="og:image:width" content="849"/>
+		<meta property="og:image:height" content="488"/>
+		<meta name="twitter:card" content="summary_large_image"/>
+		<meta name="twitter:site" content="@nendio"/>
+		<meta name="twitter:creator" content="@lapamauve"/>
+		<meta name="twitter:url" content="https://nend.io"/>
+		<meta name="twitter:title" content="Nend.io - The Never Ending game"/>
+		<meta name="twitter:description" content="Survive to city! Live, age and prepare the next generation."/>
+		<meta name="twitter:image" content="https://nend.io/img/banner.png"/>
+		<meta name="mobile-web-app-capable" content="yes"/>
+		<meta name="apple-mobile-web-app-capable" content="yes"/>
+		<meta name="robots" content="index, follow"/>
+		<meta name="revisit-after" content="3 days"/>
+		<meta name="googlebot" content="all"/>
+		<link rel="icon" type="image/png" href="img/favicon.png"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:500,700"/>
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Press+Start+2P"/>
+		<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	</head>
+
+	<body id="bod">
+
+		<canvas id="can"></canvas>
+
+		<script src="js/client.1.2228.min.js"></script>
+
+		<div id="ui">
+
+			<div id="nickname">
+
+				<input id="nicknameInput" type="text" placeholder="Nickname" maxLength="16">
+				
+			</div>
+
+			<div id="play">
+
+				<div id="playButton"> PLAY </div>
+				
+			</div>
+
+			<div id="seeMore">
+
+				<a style="text-decoration: none; color : #595388;" href="./changelog/" target="_blank">
+				<div class="seeMoreActive">SEE MORE</div>
+				</a>
+				
+			</div>
+
+			<div id="terms">
+
+				<a class="link" href="https://nend.io/termsofuse" target="blank">Terms of Use</a> - <a class="link" href="https://nend.io/privacy" target="blank">Privacy</a>
+				
+			</div>
+
+			<div id="serverList">
+
+				<select id="servers">
+				      <option disabled>Paris 3000 players</option>
+				      <option>Paris - 200 players</option>
+				      <option>Paris - 2800 players</option>
+				 </select>
+				
+			</div>
+
+			<div id="howtoplay">
+
+				
+				HOW TO PLAY ?
+				<br /><br />
+				
+				<div id="resumeHowToPlay">
+				<div class="resume"> The city survival game:</div>
+				<div class="resume"> Upgrade your skills </div>
+				<div class="resume"> Buy and sell buildings</div>
+				<div class="resume"> Be the richest</div>
+				</div>
+				
+				<br />
+				COMMANDS
+				<br /><br />
+				
+				<div id="commandsHowToPlay">
+				<div class="commands"> <span id="arrowHowToPlay" class="subcommands">ARROW KEY</span> or <span id="wasdHowToPlay"class="subcommands">WASD</span> to move </div>
+				<div class="commands"> <span id="leftHowToPlay" class="subcommands">LEFT CLICK</span> to hit</div>
+				<div class="commands"> <span id="enterHowToPlay"class="subcommands">ENTER</span> to chat</div>
+				<div class="commands"> <span id="eHowToPlay" class="subcommands">E</span> or <span id="spaceHowToPlay" class="subcommands">SPACE</span> to interact</div>
+				<div class="commands"> <span id="mHowToPlay" class="subcommands">M</span> for Map</div>
+				<div class="commands"> <span id="rightHowToPlay" class="subcommands">RIGHT CLICK</span> to delete items</div>
+				
+				<br /><br />
+				
+				</div>
+				
+				
+				<!-- Global site tag (gtag.js) - Google Analytics -->
+				<script async src="https://www.googletagmanager.com/gtag/js?id=UA-78561996-4"></script>
+				<script>
+				  window.dataLayer = window.dataLayer || [];
+				  function gtag(){dataLayer.push(arguments);}
+				  gtag('js', new Date());
+				
+				  gtag('config', 'UA-78561996-4');
+				</script>
+				
+			</div>
+
+			<div id="otherGames">
+
+				<div style="margin-bottom: 5px;">Our Other games</div>
+				
+				<a href="" id="alsoTryLink" target="_blank">
+					<img id="alsoTryImg" style="width: 160px; height: 100px;"></img>
+				</a>
+				
+			</div>
+
+			<div id="authors">
+
+				<a class="link" href="https://nend.io/authors" target="blank" style="color: #EEC0FD;font-weight: 900;">Authors</a> -
+				
+			</div>
+
+			<div id="advert">
+
+				<div id='nend-io_970x250'>
+				</div>
+				
+				<script src="https://webgames.io/js/widget.min.js?nn0"></script>
+				<script>
+				
+					function getUrlParameter (_name, url) {
+				
+						if (!url) url = window.location.href;
+				
+						_name = _name.replace (/[\[]/,"\\\[").replace (/[\]]/,"\\\]");
+				
+						var regexS = "[\\?&]" + _name + "=([^&#]*)";
+						var regex = new RegExp (regexS);
+						var results = regex.exec (url);
+						return results == null ? null : results[1];
+					};
+				
+					const _preroll = document.createElement ("div");
+					_preroll.style.display = "none";
+					_preroll.id = "preroll";
+					document.getElementById ("bod").appendChild (_preroll);
+				
+					Widget.bind ({
+				
+						reference : "nend.io",
+				
+						crossPromotion : {
+				
+							showBiscuit : {
+				
+								border : "transparent"
+							},
+				
+							container : "otherGames",
+							link : "alsoTryLink",
+							img : "alsoTryImg"
+						},
+				
+						ads : {
+							GMID : "p60oprp4p2u6se6q76i1n1220f7zse38",
+							GDID : "5ffb51af684a48eb8d25e666bc616d72",
+				
+							GDPR: true,
+				
+							mediator: "adinplay",
+							init: '//api.adinplay.com/libs/aiptag/pub/NND/nend.io/tag.min.js',
+							refresh : "manual", 
+							onload : function () {
+				
+								if (!getUrlParameter ("ref")) {
+				
+									Widget.adsRefresh ("nend-io_970x250");
+				
+								} else if (window["adsOnLoad"]) {
+				
+									window["adsOnLoad"] ();
+								}
+							},
+				
+							replace : [
+								["nend-io_970x250", "970x250", "random"],
+							],
+				
+							list : [
+								["nend-io_970x250", "970x250"],
+							],
+				
+							authorize : [
+				
+								"crazygames",
+							],
+						}
+					});
+				</script>
+				
+				
+			</div>
+
+			<div id="chat">
+
+				<input id="chatInput" type="text" placeholder="Enter text..." maxLength="60">
+				
+			</div>
+
+		</div>
+	</body>
+</html>
