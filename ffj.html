@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nedenioagaoigjeofeiorfeiofoienfioe</title>
+    <style>
+        body {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+        }
+
+        .frameContainer {
+            width: 50%;
+            height: 50vh;
+            border: none;
+            overflow: auto;
+        }
+
+        #addFrames, #removeFrames, #copyScript {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <button id="addFrames" onclick="addFrames()">Dodaj 2 ekrany</button>
+    <button id="removeFrames" onclick="removeFrames()">Odejmij 2 ekrany</button>
+    <button id="copyScript" onclick="copyScriptToClipboard()">S1</button>
+
+    <iframe class="frameContainer" id="leftFrame" src="https://nend.io/" frameborder="0"></iframe>
+    <iframe class="frameContainer" id="rightFrame" src="https://nend.io/" frameborder="0"></iframe>
+
+    <script>
+        function addFrames() {
+            const newLeftFrame = document.createElement('iframe');
+            newLeftFrame.className = 'frameContainer';
+            newLeftFrame.src = 'https://nend.io/';
+            newLeftFrame.frameborder = '0';
+
+            const newRightFrame = document.createElement('iframe');
+            newRightFrame.className = 'frameContainer';
+            newRightFrame.src = 'https://nend.io/';
+            newRightFrame.frameborder = '0';
+
+            document.body.appendChild(newLeftFrame);
+            document.body.appendChild(newRightFrame);
+        }
+
+        function removeFrames() {
+            const frameContainers = document.querySelectorAll('.frameContainer');
+            if (frameContainers.length > 2) {
+                document.body.removeChild(frameContainers[frameContainers.length - 1]);
+                document.body.removeChild(frameContainers[frameContainers.length - 2]);
+            }
+        }
+
+        function copyScriptToClipboard() {
+            const scriptText = `(function() {
+                'use strict';
+
+                // Update localStorage value every second
+                setInterval(function() {
+                    const randomValue = Math.floor(Math.random() * 100) + 1;
+                    localStorage.setItem('tokenId', randomValue.toString());
+                }, 1000);
+            })();`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = scriptText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('Script copied to clipboard!');
+        }
+    </script>
+
+    <!-- Dodaj skrypt localStorage i konsolowy skrypt Chrome -->
+    <script>
+        (function() {
+            'use strict';
+
+            // Update localStorage value every second
+            setInterval(function() {
+                const randomValue = Math.floor(Math.random() * 10) + 1;
+                localStorage.setItem('tokenId', randomValue.toString());
+            }, 1000);
+
+            // Konsolowy skrypt Chrome
+            const consoleScript = `
+                (function() {
+                    'use strict';
+                    setInterval(function() {
+                        const randomValue = Math.floor(Math.random() * 10) + 1;
+                        localStorage.setItem('tokenId', randomValue.toString());
+                    }, 1000);
+                })();
+            `;
+            
+            // Wstawienie skryptu do konsoli
+            const scriptElement = document.createElement('script');
+            scriptElement.textContent = consoleScript;
+            document.body.appendChild(scriptElement);
+        })();
+    </script>
+</body>
+</html>
