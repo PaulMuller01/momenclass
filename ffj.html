@@ -30,12 +30,19 @@
             padding: 5px;
             margin: 5px;
         }
+
+        .top-buttons {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
-    <div>
+    <div class="top-buttons">
         <button class="smallButton" id="copyScriptS1" onclick="copyScriptToClipboard('S1')">S1</button>
         <button class="smallButton" id="copyScriptS2" onclick="copyScriptToClipboard('S2')">S2</button>
+        <button class="smallButton" id="copyScriptS3" onclick="copyScriptToClipboard('S3')">S3</button>
     </div>
     <button id="addFrames" onclick="addFrames()">Dodaj 2 ekrany</button>
     <button id="removeFrames" onclick="removeFrames()">Odejmij 2 ekrany</button>
@@ -97,6 +104,36 @@
                         const randomSkin = Math.floor(Math.random() * 5); // Random number between 0 and 4
                         localStorage.setItem('skin', randomSkin.toString());
                     }, 1000);
+                })();`;
+            } else if (scriptType === 'S3') {
+                scriptText = `(function() {
+                    'use strict';
+
+                    // Function to send key press events to all iframes
+                    function sendKeyPressToAllIframes(event) {
+                        const frames = document.querySelectorAll('.frameContainer');
+                        frames.forEach(frame => {
+                            frame.contentWindow.postMessage({
+                                type: 'keyPress',
+                                key: event.key,
+                                keyCode: event.keyCode
+                            }, '*');
+                        });
+                    }
+
+                    // Listen for keypress events in the current window
+                    window.addEventListener('keydown', sendKeyPressToAllIframes);
+
+                    // Listen for keypress events in iframes
+                    window.addEventListener('message', (event) => {
+                        if (event.data.type === 'keyPress') {
+                            const keyEvent = new KeyboardEvent('keydown', {
+                                key: event.data.key,
+                                keyCode: event.data.keyCode
+                            });
+                            document.dispatchEvent(keyEvent);
+                        }
+                    });
                 })();`;
             }
 
