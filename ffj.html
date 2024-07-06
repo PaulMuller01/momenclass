@@ -18,18 +18,27 @@
             overflow: auto;
         }
 
-        #addFrames, #removeFrames, #copyScript {
+        #addFrames, #removeFrames {
             width: 100%;
             padding: 10px;
             box-sizing: border-box;
             text-align: center;
         }
+
+        .smallButton {
+            width: 50px;
+            padding: 5px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
+    <div>
+        <button class="smallButton" id="copyScriptS1" onclick="copyScriptToClipboard('S1')">S1</button>
+        <button class="smallButton" id="copyScriptS2" onclick="copyScriptToClipboard('S2')">S2</button>
+    </div>
     <button id="addFrames" onclick="addFrames()">Dodaj 2 ekrany</button>
     <button id="removeFrames" onclick="removeFrames()">Odejmij 2 ekrany</button>
-    <button id="copyScript" onclick="copyScriptToClipboard()">S1</button>
 
     <iframe class="frameContainer" id="leftFrame" src="https://nend.io/" frameborder="0"></iframe>
     <iframe class="frameContainer" id="rightFrame" src="https://nend.io/" frameborder="0"></iframe>
@@ -58,16 +67,38 @@
             }
         }
 
-        function copyScriptToClipboard() {
-            const scriptText = `(function() {
-                'use strict';
+        function copyScriptToClipboard(scriptType) {
+            let scriptText = '';
+            if (scriptType === 'S1') {
+                scriptText = `(function() {
+                    'use strict';
 
-                // Update localStorage value every second
-                setInterval(function() {
-                    const randomValue = Math.floor(Math.random() * 100) + 1;
-                    localStorage.setItem('tokenId', randomValue.toString());
-                }, 1000);
-            })();`;
+                    // Update localStorage value every second
+                    setInterval(function() {
+                        const randomValue = Math.floor(Math.random() * 100) + 1;
+                        localStorage.setItem('tokenId', randomValue.toString());
+                    }, 1000);
+                })();`;
+            } else if (scriptType === 'S2') {
+                scriptText = `(function() {
+                    'use strict';
+
+                    // Update localStorage values every second
+                    setInterval(function() {
+                        const randomHairColor = Math.floor(Math.random() * 11); // Random number between 0 and 10
+                        localStorage.setItem('haircolor', randomHairColor.toString());
+
+                        const randomGender = Math.floor(Math.random() * 2); // Random number 0 or 1
+                        localStorage.setItem('gender', randomGender.toString());
+
+                        const randomHair = Math.floor(Math.random() * 2); // Random number 0 or 1
+                        localStorage.setItem('hair', randomHair.toString());
+
+                        const randomSkin = Math.floor(Math.random() * 5); // Random number between 0 and 4
+                        localStorage.setItem('skin', randomSkin.toString());
+                    }, 1000);
+                })();`;
+            }
 
             const textarea = document.createElement('textarea');
             textarea.value = scriptText;
@@ -75,7 +106,7 @@
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('Script copied to clipboard!');
+            alert(`Script ${scriptType} copied to clipboard!`);
         }
     </script>
 
